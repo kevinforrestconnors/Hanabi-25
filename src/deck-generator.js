@@ -1,3 +1,5 @@
+import { chance } from './globals';
+
 export const HANABI_COLORS = {
   BLUE: 'blue',
   GREEN: 'green',
@@ -26,5 +28,5 @@ export const HANABI_CARDS = (() => {
 })();
 
 export function createDeck() {
-  const cards = [];
+  return chance.shuffle(HANABI_CARDS);
 }

@@ -42,7 +42,11 @@ describe('Deck Generator', () => {
 
   it('createDeck shuffles the HANABI_CARDS constant and returns a new array of cards', () => {
     function sortHanabiDeck(a, b) {
-      return a.color.compareTo(b.color) + a.rank.compareTo(b.rank);
+      if (a.color === b.color) {
+        return a.rank - b.rank;
+      }
+
+      return a.color.localeCompare(b.color);
     }
 
     const shuffledDeck = createDeck();
